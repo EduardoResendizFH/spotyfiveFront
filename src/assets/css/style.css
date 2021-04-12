@@ -1,0 +1,26 @@
+body{
+    background: #eee
+}
+
+.activated{
+    border-bottom: 4px solid #84BD00;
+    padding-bottom: 4px;
+}
+
+.artists-list{
+    margin: 0px;
+    padding: 0px;
+    margin-top: 30px;
+    list-style: none;
+    background-color: #ededed;
+}
+
+/* .artist-item{
+    width: 23%;
+    margin: 0px;
+    padding: 0px;
+    height: 317px;
+    border: 1px solid #444;
+    margin-left: 20px;
+    margin-top: 20px;
+} */

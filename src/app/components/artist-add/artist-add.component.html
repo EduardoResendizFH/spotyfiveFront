@@ -1,0 +1,38 @@
+<div *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+  <h1>
+    {{titulo}}
+  </h1>
+  <div *ngIf="alertMessage">
+    <div class="alert alert-info">
+      {{alertMessage}}
+    </div>
+  </div>
+  
+  <form #formArtist="ngForm" (ngSubmit)="onSubmit()">
+    <p>
+      <label>Nombre:</label>
+      <input type="text" #name="ngModel" name="name" [(ngModel)]="artist.name" required class="form-control">
+      <span *ngIf="!name.valid && name.touched">
+        El nombre es obligatorio
+      </span> 
+    </p>
+    <p>
+      <label>Description:</label>
+      <textarea type="text" #description="ngModel" name="description" [(ngModel)]="artist.description" required></textarea>
+      <span *ngIf="!description.valid && description.touched">
+        La descripcion es obligatoria
+      </span> 
+    </p>
+  
+    <input type="submit" value="{{titulo}}" [disabled]="!formArtist.form.valid">
+    <input type="button" value="Editar Artista"  [routerLink]="['/editar-artista',1]" [routerLinkActive]="['/editar-artista']">
+  </form>
+</div>
+
+<div *ngIf="!identity || identity.role != 'ROLE_ADMIN'">
+  <h1>Error</h1>
+  <p>
+    No tienes acceso a esta parte de la aplicacion
+  </p>
+</div>
+

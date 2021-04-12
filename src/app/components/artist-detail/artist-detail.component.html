@@ -1,0 +1,13 @@
+<div *ngIf="artist" class="artist-box">
+  <div id="artist-head-card">
+    <div class="data">
+      <h1>{{artist.name}}</h1>
+      <p class="description">
+        {{artist.description}}
+      </p>
+      <a href="" *ngIf="identity.role == 'ROLE_ADMIN'" type="button" class="btn btn-primary">
+        Añadir album
+      </a>
+    </div>
+  </div>
+</div>
