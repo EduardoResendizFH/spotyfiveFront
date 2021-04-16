@@ -70,7 +70,7 @@ export class ArtistService{
             'Authorization': token
         });
 
-        return this._http.delete(`http://localhost:3000/api/artist/${id}`, {headers: headers}).pipe(map((res:any)=> 
+        return this._http.delete(`${this.url}artist/${id}`, {headers: headers}).pipe(map((res:any)=> 
          res    
         ));
     }

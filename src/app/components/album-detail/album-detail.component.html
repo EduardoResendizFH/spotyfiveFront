@@ -1,0 +1,21 @@
+<div class="album-box" *ngIf="album">
+  <div id="album-head-card">
+    <div class="data">
+      <h1>{{album.title}}</h1>
+      <p>{{album.year}}</p>
+      <p>{{album.description}}</p>
+      <!-- EL BOTON NO PINTA -->
+      <!-- <p>
+        <a [routerLink]="['/crear-tema', album._id', album.artist._id]">
+          Añadir cancion
+        </a>
+      </p> -->
+              
+      <p>
+        <a [routerLink]="['/crear-tema', album._id]"  *ngIf="identity.role == 'ROLE_ADMIN'">
+          Añadir cancion
+        </a>
+      </p>
+    </div>
+  </div>
+</div>

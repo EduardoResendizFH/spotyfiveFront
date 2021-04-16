@@ -1,0 +1,35 @@
+<h1 class="ion-text-center">Editar album</h1>
+
+<div *ngIf="alertMessage">
+  <div class="alert alert-info">
+    {{alertMessage}}
+  </div>
+</div>
+
+<form #formAlbum="ngForm" (ngSubmit)="onSubmit()">
+  <p>
+    <label>Titulo</label>
+    <input type="text" #title name="title" [(ngModel)]="album.title" required
+    class="form-control">
+    <span *ngIf="!titulo.valid && titulo.touched">
+      El nombre es obligatorio
+    </span>
+  </p>
+  <p>
+    <label>Descripcion</label>
+    <input type="text" #description name="description" [(ngModel)]="album.description" required
+    class="form-control">
+    <span *ngIf="!description.valid && description.touched">
+      La descripcion es obligatorio
+    </span>
+  </p>
+  <p>
+    <label>Año</label>
+    <input type="text" #year name="year" [(ngModel)]="album.year" required
+    class="form-control">
+    <span *ngIf="!year.valid && year.touched">
+      El año es obligatorio es obligatorio
+    </span>
+  </p>
+  <input type="submit" value="Enviar" [disabled]="!formAlbum.form.valid" class="btn btn-success">
+</form>

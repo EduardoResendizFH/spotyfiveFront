@@ -1,0 +1,33 @@
+<h1>{{titulo}}</h1>
+
+<div *ngIf="alertMessage">
+  <div class="alert alert-info">
+    {{alertMessage}}
+  </div>
+</div>
+
+
+<form #formSong="ngForm" (ngSubmit)="onSubmit()">
+  <p>
+    <label>Numero</label>
+    <input type="text" #number="ngModel" name="number" [(ngModel)]="song.number" required class="form-control">
+    <span *ngIf="!number.valid && number.touched">
+      El numero de la cancion es obligatorio
+    </span>
+  </p>
+  <p>
+    <label>Titulo</label>
+    <input type="text" #name="ngModel" name="name" [(ngModel)]="song.name" required class="form-control">
+    <span *ngIf="!name.valid && name.touched">
+      El titulo es obligatorio
+    </span>
+  </p>
+  <p>
+    <label>Duracion</label>
+    <input type="text" #duration="ngModel" name="duration" [(ngModel)]="song.duration" required class="form-control">
+    <span *ngIf="!duration.valid && duration.touched">
+      La duracion de la cancion es obligatoria
+    </span>
+  </p>
+  <input type="submit" value="{{titulo}}" [disabled]="!formSong.form.valid" class="btn btn-success">
+</form>
